@@ -1,0 +1,18 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  labels:
+    app: psykube-presentation
+    psykube: "true"
+  name: psykube-presentation
+  namespace: default
+spec:
+  rules:
+  - host: presentation.psykube.io
+    http:
+      paths:
+      - backend:
+          serviceName: psykube-presentation
+          servicePort: 3000
+        path: /
